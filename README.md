@@ -484,8 +484,7 @@ ___
 # ERD
 
 ___
-
-
+![이알디사진](https://github.com/jangutae/Schedules/blob/main/ERD%20.png)
 ___
 
 #SQL Query

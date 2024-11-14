@@ -500,7 +500,7 @@ CREATE TABLE schedule {
     contents VARCHAR(250) NOT NULL,
     createdDate DATETIME NOT NULL,
     modifiedDate DATETIME
-    FOREIGN KEY (userId) REFERENCES users (user_id)
+    FOREIGN KEY (userId) REFERENCES users (id)
 );
 ```
 
@@ -508,7 +508,7 @@ CREATE TABLE schedule {
 ```
 --- 사용자 TABLE 생성
 CREATE TABLE user {
-    user_id INT NOT NULL PRIMARY KEY,
+    id INT NOT NULL PRIMARY KEY,
     password VARCHAR(16),
     email VARCHAR(30),
     createdDate DATETIME,
@@ -526,7 +526,7 @@ VALUES (1, 1, 제목, 내용, CURRENT_DATETIME(), CURRENT_DATETIME());
 
 ```
 --- 컬럼 값 추가 INSERT user
-INSERT INTO user(user_id, password, email, createdDate, moddifiedDate)
+INSERT INTO user(id, password, email, createdDate, moddifiedDate)
 VALUES (1, "0000", a@a.com, CURRENT_DATETIME(), CURRENT_DATETIME());
 ```
 

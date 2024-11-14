@@ -5,12 +5,12 @@ ___
 
 |기능|Method|URL|Request|Response|상태코드|
 |----|---|---|---|---|---|
-|일정 생성|POST|/api/schedules|요청 body|등록 정보|200: 정상 등록, 400:비정상값|
+|일정 생성|POST|/api/schedules|요청 body|등록 정보|200: 정상 등록, 400: 비정상값|
 |전체 일정조회|GET|/api/schedules|X|다건 응답 정보|200: 정상 조회|
-|특정 일정조회|GET|/api/schedules/{id}|X|단건 응답 정보|200: 정상조회, 404:일정이 사라짐|
-|선택 일정수정|PUT|/api/schedules/{id}|요청 body|수정 정보|200:정상등록, 400:비정상 값, 404: 일정이 사라짐|
-|선택 일정 부분수정|PATCH|/api/schedules/{id}|요청 body|수정 정보|200:정상등록, 400:비정상 값, 404: 일정이 사라짐|
-|선택 일정삭제|DELETE|/api/schedules/{id}|X||삭제 정보|204: 정상 등록, 404:일정이 사라짐|
+|특정 일정조회|GET|/api/schedules/{id}|X|단건 응답 정보|200: 정상조회, 404: 일정을 조회 할수 없음|
+|선택 일정수정|PUT|/api/schedules/{id}|요청 body|수정 정보|200:정상등록, 400:비정상 값, 404: 일정을 조회 할수 없음|
+|선택 일정 부분수정|PATCH|/api/schedules/{id}|요청 body|수정 정보|200:정상등록, 400:비정상 값, 404: 일정을 조회 할수 없음|
+|선택 일정삭제|DELETE|/api/schedules/{id}|X||삭제 정보|204: 정상 등록, 404: 일정을 조회 할수 없음|
 
 
 ###  일정 생성

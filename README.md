@@ -170,7 +170,6 @@ ___
     
 |컬럼|타입|설명|필수값|
 |---|---|---|---|
-|username|String|작성자의 이름| Y |
 |title|String|작성된 글의 제목| Y |
 |contents|String|작성된 글의 내용| Y |
 
@@ -194,11 +193,8 @@ ___
  
   ```
   {  
-    "username" : "수정된 이름"
     "title" : "수정된 제목"
     "contents" : "수정된 할일"
-    "createdDate" : "2024-11-14 09:24:00"
-    "modifiedDate" : "2024-11-14 09:24:00"
   } 
   ```
   
@@ -208,7 +204,7 @@ ___
    ```
   {  
      "id" : 1
-     "username" : "수정된 이름"
+     "username" : "이름"
      "title" : "수정된 제목"
      "contents" : "수정된 할일"
      "createdDate" : "2024-11-14 09:24:00"
@@ -226,90 +222,104 @@ ___
   
   * 요청 : PATCH/api/schedules/{id}
 
-  * 제목만 수정하는 경우
+#### 제목만 수정하는 경우
 
-  * 본문 
+----
+
+
+  * 본문
+ 
+  * 요청 : 
     
 |컬럼|타입|설명|필수값|
 |---|---|---|---|
 |username|String|작성자의 이름| Y |
+
+  * 응답 :
+
+|컬럼|타입|설명|필수값|
+|---|---|---|---|
+|id|LONG|작성된 글의 고유식별 id| Y |
+|username|String|작성자의 이름| Y |
+|title|String|작성된 글의 제목| Y |
+|contents|String|작성된 글의 내용| Y |
+|createDate|datetime|작성된 글의 날짜 및 시간| Y |
+|modifiedDate|datetime|수정된 글의 날짜 및 시간| Y| 
+
+  * 예제
+  
+   * 요청 : PATCH/api/schedules{id} 
+ 
+   * Body -> raw -> JSON 
+
 
  ```
   {  
     "title" : "수정된 제목"
   } 
   ```
-  
 
-  * 응답 :
-     
-|컬럼|타입|설명|필수값|
-|---|---|---|---|
-|id|LONG|작성된 글의 고유식별 id| Y |
-|username|String|작성자의 이름| Y |
-|title|String|작성된 글의 제목| Y |
-|contents|String|작성된 글의 내용| Y |
-|createDate|datetime|작성된 글의 날짜 및 시간| Y |
-|modifiedDate|datetime|수정된 글의 날짜 및 시간| Y| 
-  
-  * 내용만 수정하는 경우
-  
-|컬럼|타입|설명|필수값|
-|---|---|---|---|
-|title|String|작성된 글의 제목| Y |
-
-  * 응답 :
-     
-|컬럼|타입|설명|필수값|
-|---|---|---|---|
-|id|LONG|작성된 글의 고유식별 id| Y |
-|username|String|작성자의 이름| Y |
-|title|String|작성된 글의 제목| Y |
-|contents|String|작성된 글의 내용| Y |
-|createDate|datetime|작성된 글의 날짜 및 시간| Y |
-|modifiedDate|datetime|수정된 글의 날짜 및 시간| Y| 
-
-   * 응답 :
-     
-|컬럼|타입|설명|필수값|
-|---|---|---|---|
-|id|LONG|작성된 글의 고유식별 id| Y |
-|username|String|작성자의 이름| Y |
-|title|String|작성된 글의 제목| Y |
-|contents|String|작성된 글의 내용| Y |
-|createDate|datetime|작성된 글의 날짜 및 시간| Y |
-|modifiedDate|datetime|수정된 글의 날짜 및 시간| Y| 
-
-* 예제
-
-   * 요청 : PUT/api/schedules{id} 
- 
-   * Body -> raw -> JSON 
-
- 
-  ```
-  {  
-    "username" : "수정된 이름"
-    "title" : "수정된 제목"
-    "contents" : "수정된 할일"
-    "createdDate" : "2024-11-14 09:24:00"
-    "modifiedDate" : "2024-11-14 09:24:00"
-  } 
-  ```
-  
-     
-  * 응답 : HTTP/1.1 200 OK
+   * 응답 : 
  
    ```
   {  
-     "id" : 1
-     "username" : "수정된 이름"
-     "title" : "수정된 제목"
-     "contents" : "수정된 할일"
-     "createdDate" : "2024-11-14 09:24:00"
-     "modifiedDate" : "2024-11-15 12:00:12"
+    "username" : "이름"
+    "title" : "수정된 제목"
+    "contents" : "할 일"
+    "createdDate" : "2024-11-14 09:24:00"
+    "modifiedDate" : "2024-11-15 12:00:12"
   } 
   ```
+  ____
+
+ 
+ #### 내용만 수정하는 경우
+
+ ___
+
+
+* 본문 :
+   
+  * 요청 : 
+ 
+|컬럼|타입|설명|필수값|
+|---|---|---|---|
+|title|String|작성된 글의 제목| Y |
+
+  * 응답 :
+     
+|컬럼|타입|설명|필수값|
+|---|---|---|---|
+|id|LONG|작성된 글의 고유식별 id| Y |
+|username|String|작성자의 이름| Y |
+|title|String|작성된 글의 제목| Y |
+|contents|String|작성된 글의 내용| Y |
+|createDate|datetime|작성된 글의 날짜 및 시간| Y |
+|modifiedDate|datetime|수정된 글의 날짜 및 시간| Y| 
+
+
+* 예제 :
+
+  * 요청 :
+    
+ ```
+  {  
+    "contents" : "수정된 할 일"
+  } 
+  ```
+
+   * 응답 : 
+ 
+   ```
+  {  
+    "username" : "이름"
+    "title" : "제목"
+    "contents" : "수정된 할 일"
+    "createdDate" : "2024-11-14 09:24:00"
+    "modifiedDate" : "2024-11-15 12:00:12"
+  } 
+  ```
+  ____
 
 
 ### 일정 삭제

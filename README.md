@@ -480,4 +480,80 @@ ___
   * params
  
   * 응답 : HTTP/1.1 200 OK
-  
+
+# ERD
+
+___
+
+
+___
+
+#SQL Query
+
+1. 테이블 생성  
+
+```
+--- 일정 TABLE 생성
+CREATE TABLE schedule {
+    id INT NOT NULL PRIMARY KEY AUTO_INCREAMENT,
+    userId INT NOT NULL COMMENT '사용자 식별 ID',
+    title VARCHAR(50) NOT NULL,
+    contents VARCHAR(250) NOT NULL,
+    createdDate DATETIME NOT NULL,
+    modifiedDate DATETIME
+);
+```
+
+
+```
+--- 사용자 TABLE 생성
+CREATE TABLE user {
+    userId INT NOT NULL PRIMARY KEY,
+    password VARCHAR(16),
+    email VARCHAR(30),
+    createdDate DATETIME,
+    modifiedDate DATETIME
+);
+```
+
+2. 유저 생성 및 일정 생성
+
+```
+--- 컬럼 값 추가 INSERT schedule
+INSERT INTO schedule(id, userId, title, contents, createdDate, modifiedDate)
+VALUES (1, 1, 제목, 내용, CURRENT_DATETIME(), CURRENT_DATETIME());
+```
+
+```
+--- 컬럼 값 추가 INSERT user
+INSERT INTO user(userId, password, email, createdDate, moddifiedDate)
+VALUES (1, "0000", a@a.com, CURRENT_DATETIME(), CURRENT_DATETIME());
+```
+
+3. 전체 일정 조회
+
+```
+--- schedule 테이블 전체 컬럼 조회
+SELECT * FROM schedule ORDER BY modifiedDate DESC
+
+```
+
+4. 특정 일정 조회
+
+```
+--- schedule 테이블 특정 일정
+SELECT * FROM schedule WHERE id = 1 ORDER BY modifiedDate DESC
+
+```
+
+5. 특정 일정 수정
+```
+-- schedule 테이블 컬럼 값 수정 
+UPDATE schedule SET title = '수정된 제목', content = '수정된 내용', update_date = CURRENT_DATE() WHERE id = 1;
+
+```
+6. 특정 일정 삭제
+   
+```
+--- DELETE  FROM schedule  WHERE id = 1
+```

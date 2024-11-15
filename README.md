@@ -271,7 +271,8 @@ ___
    * 응답 : 
  
    ```
-  {  
+  {
+    "id" : 1, 
     "username" : "이름",
     "title" : "수정된 제목",
     "contents" : "할 일",
@@ -320,7 +321,8 @@ ___
    * 응답 : 
  
    ```
-  {  
+  {
+    "id" : 1,
     "username" : "이름",
     "title" : "제목",
     "contents" : "수정된 할 일",
@@ -383,7 +385,7 @@ ___
 
 |컬럼|타입|설명|필수값|
 |---|---|---|---|
-|userId|Long|작성자의 고유식별id| Y |
+|id|Long|작성자의 고유식별id| Y |
 |username|String|작성자의 이름| Y |
 |email|String|작성자의 이메일| Y |
 |createDate|datetime|작성된 글의 날짜 및 시간| Y |
@@ -409,7 +411,7 @@ ___
       
 ```
   {
-    "userId" : 1,
+    "id" : 1,
     "username" : "이름",
     "email" : "a@a.com",
     "createdDate" : "2024-11-14 09:24:00",
@@ -451,7 +453,7 @@ ___
  
    ```
   {  
-     "userId" : 1,
+     "id" : 1,
      "username" : "이름",
      "email" : "제목",
      "createdDate" : "2024-11-14 09:24:00",
@@ -484,8 +486,7 @@ ___
 # ERD
 
 ___
-
-
+![이알디사진](https://github.com/jangutae/Schedules/blob/main/ERD%20.png)
 ___
 
 #SQL Query
@@ -501,6 +502,7 @@ CREATE TABLE schedule {
     contents VARCHAR(250) NOT NULL,
     createdDate DATETIME NOT NULL,
     modifiedDate DATETIME
+    FOREIGN KEY (userId) REFERENCES users (id)
 );
 ```
 
@@ -508,7 +510,7 @@ CREATE TABLE schedule {
 ```
 --- 사용자 TABLE 생성
 CREATE TABLE user {
-    userId INT NOT NULL PRIMARY KEY,
+    id INT NOT NULL PRIMARY KEY,
     password VARCHAR(16),
     email VARCHAR(30),
     createdDate DATETIME,
@@ -526,7 +528,7 @@ VALUES (1, 1, 제목, 내용, CURRENT_DATETIME(), CURRENT_DATETIME());
 
 ```
 --- 컬럼 값 추가 INSERT user
-INSERT INTO user(userId, password, email, createdDate, moddifiedDate)
+INSERT INTO user(id, password, email, createdDate, moddifiedDate)
 VALUES (1, "0000", a@a.com, CURRENT_DATETIME(), CURRENT_DATETIME());
 ```
 

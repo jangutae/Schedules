@@ -2,7 +2,6 @@ package com.example.schedule.service;
 
 import com.example.schedule.dto.schedule.ScheduleResponseDto;
 import com.example.schedule.entity.Schedule;
-import com.example.schedule.entity.User;
 import com.example.schedule.repository.ScheduleRepository;
 import com.example.schedule.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

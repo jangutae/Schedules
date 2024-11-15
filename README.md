@@ -562,4 +562,4 @@ UPDATE schedule SET title = '수정된 제목', content = '수정된 내용', up
 
 # 트러블 슈팅
 ___
-[트러블 슈팅 블로그]<https://velog.io/@jangut600/11.15-schedule-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85>
+[트러블 슈팅 블로그](https://velog.io/@jangut600/11.15-schedule-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85)
